@@ -1,4 +1,4 @@
-package main.dk.qpqp;
+package main.dk.qpqp.items;
 
 import org.bukkit.inventory.ItemStack;
 

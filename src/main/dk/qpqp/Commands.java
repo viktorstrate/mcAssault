@@ -3,7 +3,6 @@ package main.dk.qpqp;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 public class Commands {
@@ -25,8 +24,6 @@ public class Commands {
 				}
 			}
 		}
-		
-		ItemStack itm;
 		
 		return false;
 	}
