@@ -11,6 +11,7 @@ public class McAssault extends JavaPlugin {
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		return false;	
+		
+		return Commands.get(sender, command, label, args, this);
 	}
 }
