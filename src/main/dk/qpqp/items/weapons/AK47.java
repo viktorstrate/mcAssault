@@ -7,12 +7,17 @@ import org.bukkit.inventory.meta.ItemMeta;
 import main.dk.qpqp.items.Weapon;
 import main.dk.qpqp.items.WeaponType;
 
+/*
+ * This is an AK47 weapon
+ */
+
 public class AK47 extends Weapon {
 	
 	private static final ItemStack item = getItem();
 	
 	public AK47() {
 		super(item, WeaponType.AK47);
+		super.setShootType(ShootType.AUTOMATIC);
 	}
 	
 	private static final ItemStack getItem(){
