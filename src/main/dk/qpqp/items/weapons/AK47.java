@@ -18,7 +18,7 @@ public class AK47 extends Weapon {
 	private static final ItemStack getItem(){
 		ItemStack item = new ItemStack(Material.STICK);
 		ItemMeta itemMeta = item.getItemMeta();
-		itemMeta.setDisplayName("AK47");
+		itemMeta.setDisplayName("§1AK47");
 		item.setItemMeta(itemMeta);
 		return item;
 	}
