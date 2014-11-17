@@ -8,6 +8,6 @@ public class Message {
 	private static String prefix = "[McAssault]";
 	
 	public static void playerMessage(String message, Player player, Plugin plugin){
-		player.sendMessage(prefix+""+message);
+		player.sendMessage(prefix+" "+message);
 	}
 }
