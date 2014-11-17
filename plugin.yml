@@ -1,0 +1,7 @@
+name: McAssault
+main: main.dk.qpqp.McAssault
+version: 1.0
+commands:
+   assault:
+      description: Assault command
+      aliases: guns

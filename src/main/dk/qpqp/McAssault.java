@@ -1,5 +1,16 @@
 package main.dk.qpqp;
 
-public class McAssault {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
 
+public class McAssault extends JavaPlugin {
+	
+	public void onEnable(){
+		
+	}
+	
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		return false;	
+	}
 }
