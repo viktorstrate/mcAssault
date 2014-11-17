@@ -4,8 +4,14 @@ import org.bukkit.inventory.ItemStack;
 
 // This is the basic structure of all weapons
 
-public abstract class Weapon {
-	public ItemStack getItemStack(){
-		return null;
+public interface Weapon {
+	
+	public enum shootType{
+		AUTOMATIC,
+		SEMI_AUTOMATIC
 	}
+	
+	public ItemStack getItemStack();
+	
+	
 }
