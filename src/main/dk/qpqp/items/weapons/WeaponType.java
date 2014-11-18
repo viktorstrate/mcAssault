@@ -7,7 +7,8 @@ import main.dk.qpqp.items.weapons.items.*;
  */
 
 public enum WeaponType {
-	AK47 (new AK47());
+	AK47 (new AK47()),
+	Glock (new Glock());
 	
 	private Weapon weapon;
 	
