@@ -7,19 +7,34 @@ import main.dk.qpqp.items.weapons.items.*;
  */
 
 public enum WeaponType {
-	AK47 (new AK47(), "AK47"),
-	Glock (new Glock(), "Glock");
+	AK47 (0, "AK47"),
+	Glock (1, "Glock");
 	
-	private Weapon weapon;
+	private int weaponId;
 	private String name;
 	
-	WeaponType(Weapon weapon, String name){
-		this.weapon = weapon;
+	WeaponType(int weaponId, String name){
+		this.weaponId = weaponId;
 		this.name = name;
 	}
 
-	public Weapon getWeapon() {
-		return weapon;
+	public int getWeaponId() {
+		return weaponId;
+	}
+	
+	public Weapon getWeapon(){
+		for(WeaponType w: WeaponType.values()){
+			if(w.getWeaponId()==weaponId){
+				switch(w){
+				case AK47:
+					return new AK47();
+				case Glock:
+					return new Glock();
+				}
+			}
+		}
+		
+		return null;
 	}
 	
 	public String getName(){

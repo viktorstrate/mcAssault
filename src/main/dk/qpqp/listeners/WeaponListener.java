@@ -2,6 +2,8 @@ package main.dk.qpqp.listeners;
 
 import main.dk.qpqp.Message;
 import main.dk.qpqp.items.Items;
+import main.dk.qpqp.items.weapons.Weapon;
+import main.dk.qpqp.items.weapons.Weapons;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -26,9 +28,9 @@ public class WeaponListener implements Listener {
 		if(itemInHand.getType().equals(Material.AIR)){
 			Message.playerMessage(itemInHand.getType().name(), player, plugin);
 		} else {
-			Message.playerMessage("Not air", player, plugin);
 			if(Items.isCustomItem(itemInHand)){
-				Message.playerMessage("Insert Shoot Function Here", player, plugin);
+				Weapon weapon = Weapons.getWeapon(itemInHand);
+				Message.playerMessage("Is shooting a "+weapon.getWeaponType(), player, plugin);
 			}
 		}
 	}

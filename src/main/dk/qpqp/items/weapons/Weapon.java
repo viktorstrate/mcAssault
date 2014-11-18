@@ -66,16 +66,12 @@ public abstract class Weapon implements CustomItemStack {
 		return itemMeta;
 	}
 	
-	public Material getType(){
-		return material;
-	}
-	
 	public void setAmount(int amount){
 		this.amount = amount;
 		itemStack.setAmount(amount);
 	}
 	
-	public Material getMaterial() {
+	public Material getType() {
 		return material;
 	}
 
@@ -112,6 +108,10 @@ public abstract class Weapon implements CustomItemStack {
 		}
 		
 		return id;
+	}
+	
+	public WeaponType getWeaponType(){
+		return weaponType;
 	}
 	
 	
