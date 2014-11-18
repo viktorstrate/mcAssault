@@ -22,6 +22,8 @@ public class McAssault extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new WeaponListener(plugin), this);
 		
 		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled", plugin);
+		
+		
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
