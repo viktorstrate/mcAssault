@@ -14,6 +14,7 @@ private static final ItemStack item = getItem();
 	public Glock() {
 		super(item, WeaponType.Glock);
 		super.setShootType(ShootType.SEMI_AUTOMATIC);
+		super.setItemStack(getItem());
 	}
 	
 	private static final ItemStack getItem(){

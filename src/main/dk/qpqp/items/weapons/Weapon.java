@@ -11,25 +11,12 @@ import org.bukkit.material.MaterialData;
 
 public abstract class Weapon implements CustomItemStack {
 	
-	ItemStack itemStack = null;
 	WeaponType weaponType = null;
-	ShootType shootType = null; 
+	ShootType shootType = null;
 
 	public enum ShootType{
 		AUTOMATIC,
 		SEMI_AUTOMATIC
-	}
-	
-	public int getWeaponId(){
-		int id = 0;
-		for(WeaponType type: WeaponType.values()){
-			if(type.equals(weaponType)){
-				break;
-			}
-			id++;
-		}
-		
-		return id;
 	}
 	
 	public Weapon(ItemStack item, WeaponType weaponType){
@@ -38,10 +25,13 @@ public abstract class Weapon implements CustomItemStack {
 		this.itemMeta = item.getItemMeta();
 		this.material = item.getType();
 		this.weaponType = weaponType;
-	}
-	
-	public ItemStack getItemStack() {
-		return null;
+		
+		ItemStack itemStack = new ItemStack(material);
+		itemStack.setData(data);
+		itemStack.setAmount(amount);
+		itemStack.setItemMeta(itemMeta);
+		
+		this.itemStack = itemStack;
 	}
 	
 	// Custom ItemStack setup
@@ -50,6 +40,19 @@ public abstract class Weapon implements CustomItemStack {
 	private MaterialData data = null;
 	private ItemMeta itemMeta = null;
 	private Material material = null;
+	private ItemStack itemStack = null;
+	
+	public void setItemStack(ItemStack itemStack){
+		this.itemStack = itemStack;
+		material = itemStack.getType();
+		amount = itemStack.getAmount();
+		data = itemStack.getData();
+		itemMeta = itemStack.getItemMeta();
+	}
+	
+	public ItemStack getItemStack() {
+		return itemStack;
+	}
 	
 	public int getAmount(){
 		return amount;
@@ -69,8 +72,28 @@ public abstract class Weapon implements CustomItemStack {
 	
 	public void setAmount(int amount){
 		this.amount = amount;
+		itemStack.setAmount(amount);
 	}
 	
+	public Material getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(Material material) {
+		this.material = material;
+		itemStack.setType(material);
+	}
+
+	public void setData(MaterialData data) {
+		this.data = data;
+		itemStack.setData(data);
+	}
+
+	public void setItemMeta(ItemMeta itemMeta) {
+		this.itemMeta = itemMeta;
+		itemStack.setItemMeta(itemMeta);
+	}
+
 	public ShootType getShootType() {
 		return shootType;
 	}
@@ -78,5 +101,18 @@ public abstract class Weapon implements CustomItemStack {
 	public void setShootType(ShootType shootType) {
 		this.shootType = shootType;
 	}
+	
+	public int getWeaponId(){
+		int id = 0;
+		for(WeaponType type: WeaponType.values()){
+			if(type.equals(weaponType)){
+				break;
+			}
+			id++;
+		}
+		
+		return id;
+	}
+	
 	
 }

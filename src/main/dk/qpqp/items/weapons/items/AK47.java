@@ -18,6 +18,7 @@ public class AK47 extends Weapon {
 	public AK47() {
 		super(item, WeaponType.AK47);
 		super.setShootType(ShootType.AUTOMATIC);
+		super.setItemStack(getItem());
 	}
 	
 	private static final ItemStack getItem(){
@@ -27,5 +28,7 @@ public class AK47 extends Weapon {
 		item.setItemMeta(itemMeta);
 		return item;
 	}
+	
+	
 
 }

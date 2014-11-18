@@ -1,6 +1,7 @@
 package main.dk.qpqp.listeners;
 
 import main.dk.qpqp.Message;
+import main.dk.qpqp.items.Items;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -24,6 +25,10 @@ public class WeaponListener implements Listener {
 		ItemStack itemInHand = player.getItemInHand();
 		if(itemInHand.getType().equals(Material.AIR)){
 			Message.playerMessage(itemInHand.getType().name(), player, plugin);
+			
+			if(Items.isCustomItem(itemInHand)){
+				Message.playerMessage("Insert Shoot Function Here", player, plugin);
+			}
 			
 		}
 	}

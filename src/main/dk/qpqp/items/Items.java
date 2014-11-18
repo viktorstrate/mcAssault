@@ -29,6 +29,19 @@ public class Items {
 		
 	}
 	
+	public static CustomItemStack getCustomItemStack(String itemname){
+		
+		// Check weapons
+		for(WeaponType wt: WeaponType.values()){
+			if(wt.getName().equalsIgnoreCase(itemname)){
+				return wt.getWeapon();
+			}
+		}
+		
+		return null;
+		
+	}
+	
 	public static ArrayList<CustomItemStack> getAllCustomItems(){
 		
 		ArrayList<CustomItemStack> customItems = new ArrayList<CustomItemStack>();
