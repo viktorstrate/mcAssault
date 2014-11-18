@@ -9,6 +9,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
 
 /**
+ * This is the base of all custom made items by this plugin.
+ * All the guns and grenades.
  * @author Viktor Strate
  *
  */

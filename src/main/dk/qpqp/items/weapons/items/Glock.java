@@ -7,6 +7,12 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+/**
+ * This is a Glock gun.
+ * @author Viktor
+ *
+ */
+
 public class Glock extends Weapon {
 	
 private static final ItemStack item = getItem();

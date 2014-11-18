@@ -2,8 +2,10 @@ package main.dk.qpqp.items.weapons;
 
 import main.dk.qpqp.items.weapons.items.*;
 
-/*
- * A list of all the weapons
+/**
+ * This is a enum (list) of all the weapons.
+ * @author Viktor
+ *
  */
 
 public enum WeaponType {

@@ -8,7 +8,7 @@ import main.dk.qpqp.items.weapons.Weapons;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * General item functions
+ * General item functions.
  * 
  * @author Viktor Strate
  */

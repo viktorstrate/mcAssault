@@ -19,7 +19,7 @@ import main.dk.qpqp.items.CustomItemStack;
  * @author Viktor Strate
  * 
  * This class holds all the basic weapon functions.
- * Like the class Items but with weapons instead
+ * Like the class "Items" but with weapons instead.
  */
 public class Weapons {
 

@@ -13,6 +13,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
+/**
+ * This file handles all the weapon listener stuff.
+ * Like shooting.
+ * @author Viktor
+ *
+ */
+
 public class WeaponListener implements Listener {
 	
 	Plugin plugin;

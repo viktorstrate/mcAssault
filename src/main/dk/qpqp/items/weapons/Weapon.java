@@ -8,18 +8,23 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
 
-// This is the basic structure of all weapons
+/**
+ * This is the basic structure of all weapons
+ * @author Viktor
+ *
+ */
 
 public abstract class Weapon implements CustomItemStack {
 	
 	WeaponType weaponType = null;
 	ShootType shootType = null;
-
+	
 	public enum ShootType{
 		AUTOMATIC,
 		SEMI_AUTOMATIC
 	}
 	
+	// Creates the weapon
 	public Weapon(ItemStack item, WeaponType weaponType){
 		this.amount = item.getAmount();
 		this.data = item.getData();
@@ -35,7 +40,7 @@ public abstract class Weapon implements CustomItemStack {
 		this.itemStack = itemStack;
 	}
 	
-	// Custom ItemStack setup
+	// Custom ItemStack setup down below.
 	
 	private int amount = 0;
 	private MaterialData data = null;
