@@ -1,5 +1,7 @@
 package main.dk.qpqp;
 
+import main.dk.qpqp.listeners.WeaponListener;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
@@ -9,8 +11,10 @@ public class McAssault extends JavaPlugin {
 	
 	public Plugin plugin;
 	
+	
 	public void onEnable(){
 		plugin = this;
+		plugin.getPluginLoader().createRegisteredListeners(new WeaponListener(plugin), plugin);
 		
 	}
 	
