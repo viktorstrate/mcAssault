@@ -31,6 +31,7 @@ public class WeaponListener implements Listener {
 			if(Items.isCustomItem(itemInHand)){
 				Weapon weapon = Weapons.getWeapon(itemInHand);
 				Message.playerMessage("Is shooting a "+weapon.getWeaponType(), player, plugin);
+				weapon.shoot(player);
 			}
 		}
 	}

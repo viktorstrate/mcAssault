@@ -3,6 +3,7 @@ package main.dk.qpqp.items.weapons;
 import main.dk.qpqp.items.CustomItemStack;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
@@ -48,6 +49,10 @@ public abstract class Weapon implements CustomItemStack {
 		amount = itemStack.getAmount();
 		data = itemStack.getData();
 		itemMeta = itemStack.getItemMeta();
+	}
+	
+	public void shoot(Player player){
+		Weapons.spawnProjectile(player, 0, 5);
 	}
 	
 	public ItemStack getItemStack() {
