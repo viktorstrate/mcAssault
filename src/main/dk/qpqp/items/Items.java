@@ -18,13 +18,12 @@ public class Items {
 		
 		// Check weapons
 		for(CustomItemStack itm: Weapons.getWeapons()){
-			if(itm.getType().equals(item)){
+			if(itm.getType().equals(item.getType())){
 				if(itm.getItemMeta().equals(item.getItemMeta())){
 					return itm;
 				}
 			}
 		}
-		
 		return null;
 		
 	}
