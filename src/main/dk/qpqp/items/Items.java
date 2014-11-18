@@ -16,7 +16,14 @@ import org.bukkit.inventory.ItemStack;
 public class Items {
 	public static CustomItemStack getCustomItemStack(ItemStack item){
 		
-		// TODO make this
+		// Check weapons
+		for(CustomItemStack itm: Weapons.getWeapons()){
+			if(itm.getType().equals(item)){
+				if(itm.getItemMeta().equals(item.getItemMeta())){
+					return itm;
+				}
+			}
+		}
 		
 		return null;
 		
@@ -31,5 +38,11 @@ public class Items {
 		}
 		
 		return customItems;
+	}
+	
+	public static boolean isCustomItem(ItemStack item){
+		if(getCustomItemStack(item)!=null){
+			return true;
+		} else return false;
 	}
 }
