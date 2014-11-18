@@ -1,5 +1,6 @@
 package main.dk.qpqp;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -20,7 +21,7 @@ public class Commands {
 			
 			if(args[0].equalsIgnoreCase("give")){
 				if(args.length!=3){
-					Message.playerMessage("Usage: /guns give [USERNAME] [ITEMNAME]", player, plugin);
+					Message.playerMessage("Usage: /guns give <Username> <ItemName>", player, plugin);
 				}
 			}
 		}
@@ -31,5 +32,15 @@ public class Commands {
 	// Shows basic commands
 	private static void showHelp(Player player) {
 		
+		//Begin
+		
+		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.pluginName + ChatColor.GREEN + " =====");
+		
+		//Commands
+		
+		player.sendMessage(ChatColor.YELLOW + "/guns" + ChatColor.WHITE + " Shows this help screen.");
+		player.sendMessage(ChatColor.YELLOW + "/guns give <Username> <ItemName>" + ChatColor.WHITE + " Gives a gun.");
+		
+		//New Messages: player.sendMessage(ChatColor.YELLOW + "COMMAND" + ChatColor.WHITE + " INFORMATION");
 	}
 }
