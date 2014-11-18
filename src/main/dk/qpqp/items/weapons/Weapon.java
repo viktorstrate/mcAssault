@@ -1,4 +1,6 @@
-package main.dk.qpqp.items;
+package main.dk.qpqp.items.weapons;
+
+import main.dk.qpqp.items.CustomItemStack;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

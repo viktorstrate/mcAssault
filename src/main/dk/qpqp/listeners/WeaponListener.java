@@ -2,6 +2,7 @@ package main.dk.qpqp.listeners;
 
 import main.dk.qpqp.Message;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,9 +22,9 @@ public class WeaponListener implements Listener {
 	public void onInteract(PlayerInteractEvent event){
 		Player player = event.getPlayer();
 		ItemStack itemInHand = player.getItemInHand();
-		if(itemInHand!=null){
-			Message.playerMessage("You got an item in your hand", player, plugin);
-		} else
-			Message.playerMessage("Empty hand", player, plugin);
+		if(itemInHand.getType().equals(Material.AIR)){
+			Message.playerMessage(itemInHand.getType().name(), player, plugin);
+			
+		}
 	}
 }

@@ -1,11 +1,11 @@
-package main.dk.qpqp.items.weapons;
+package main.dk.qpqp.items.weapons.items;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import main.dk.qpqp.items.Weapon;
-import main.dk.qpqp.items.WeaponType;
+import main.dk.qpqp.items.weapons.Weapon;
+import main.dk.qpqp.items.weapons.WeaponType;
 
 /*
  * This is an AK47 weapon

@@ -10,4 +10,8 @@ public class Message {
 	public static void playerMessage(String message, Player player, Plugin plugin){
 		player.sendMessage(prefix+""+message);
 	}
+	
+	public static void log(String message, Plugin plugin){
+		plugin.getLogger().info(message);
+	}
 }
