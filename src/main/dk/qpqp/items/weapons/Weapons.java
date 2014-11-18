@@ -5,6 +5,8 @@ package main.dk.qpqp.items.weapons;
 
 import java.util.ArrayList;
 
+import org.bukkit.inventory.ItemStack;
+
 import main.dk.qpqp.items.CustomItemStack;
 
 
@@ -28,7 +30,17 @@ public class Weapons {
 	
 	public static Weapon getWeapon(CustomItemStack weapon){
 		for(WeaponType w: WeaponType.values()){
-			if(weapon.equals(w)){
+			if(weapon.equals(w.getWeapon())){
+				return w.getWeapon();
+			}
+		}
+		
+		return null;
+	}
+	
+	public static Weapon getWeapon(ItemStack weapon){
+		for(WeaponType w: WeaponType.values()){
+			if(weapon.equals(w.getWeapon().getItemStack())){
 				return w.getWeapon();
 			}
 		}

@@ -16,7 +16,26 @@ import org.bukkit.inventory.ItemStack;
 public class Items {
 	public static CustomItemStack getCustomItemStack(ItemStack item){
 		
-		// TODO make this
+		// Check weapons
+		for(CustomItemStack itm: Weapons.getWeapons()){
+			if(itm.getType().equals(item.getType())){
+				if(itm.getItemMeta().equals(item.getItemMeta())){
+					return itm;
+				}
+			}
+		}
+		return null;
+		
+	}
+	
+	public static CustomItemStack getCustomItemStack(String itemname){
+		
+		// Check weapons
+		for(WeaponType wt: WeaponType.values()){
+			if(wt.getName().equalsIgnoreCase(itemname)){
+				return wt.getWeapon();
+			}
+		}
 		
 		return null;
 		
@@ -31,5 +50,11 @@ public class Items {
 		}
 		
 		return customItems;
+	}
+	
+	public static boolean isCustomItem(ItemStack item){
+		if(getCustomItemStack(item)!=null){
+			return true;
+		} else return false;
 	}
 }
