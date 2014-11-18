@@ -1,4 +1,6 @@
-package main.dk.qpqp.items;
+package main.dk.qpqp.items.weapons;
+
+import main.dk.qpqp.items.CustomItemStack;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -11,10 +13,23 @@ public abstract class Weapon implements CustomItemStack {
 	
 	ItemStack itemStack = null;
 	WeaponType weaponType = null;
-	
-	public enum shootType{
+	ShootType shootType = null; 
+
+	public enum ShootType{
 		AUTOMATIC,
 		SEMI_AUTOMATIC
+	}
+	
+	public int getWeaponId(){
+		int id = 0;
+		for(WeaponType type: WeaponType.values()){
+			if(type.equals(weaponType)){
+				break;
+			}
+			id++;
+		}
+		
+		return id;
 	}
 	
 	public Weapon(ItemStack item, WeaponType weaponType){
@@ -54,6 +69,14 @@ public abstract class Weapon implements CustomItemStack {
 	
 	public void setAmount(int amount){
 		this.amount = amount;
+	}
+	
+	public ShootType getShootType() {
+		return shootType;
+	}
+
+	public void setShootType(ShootType shootType) {
+		this.shootType = shootType;
 	}
 	
 }
