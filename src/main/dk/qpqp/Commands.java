@@ -34,7 +34,7 @@ public class Commands {
 		
 		//Begin
 		
-		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.pluginName + ChatColor.GREEN + " =====");
+		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.prefix + ChatColor.GREEN + " =====");
 		
 		//Commands
 		
