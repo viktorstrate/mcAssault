@@ -6,13 +6,15 @@ package main.dk.qpqp.items.weapons;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import main.dk.qpqp.items.CustomItemStack;
+import main.dk.qpqp.items.ItemList;
+import main.dk.qpqp.items.ItemList.ItemType;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
-
-import main.dk.qpqp.items.CustomItemStack;
 
 
 /**
@@ -22,14 +24,21 @@ import main.dk.qpqp.items.CustomItemStack;
  * Like the class "Items" but with weapons instead.
  */
 public class Weapons {
+	
+	public enum ShootType{
+		AUTOMATIC,
+		SEMI_AUTOMATIC
+	}
 
 	// Keeps track of the bullet's owners
 	public static HashMap<Entity, Player> bullets = new HashMap<Entity, Player>();
 	
-	public static Weapon getWeapon(WeaponType weapon){
-		for(WeaponType w: WeaponType.values()){
-			if(weapon.equals(w)){
-				return w.getWeapon();
+	public static Weapon getWeapon(ItemList item){
+		if(item.getItemType().equals(ItemType.Weapon)){
+			for(ItemType i: ItemType.values()){
+				if(item.equals(i)){
+					return (Weapon) item.getCustomItem();
+				}
 			}
 		}
 		
@@ -55,9 +64,9 @@ public class Weapons {
 	}
 	
 	public static Weapon getWeapon(CustomItemStack weapon){
-		for(WeaponType w: WeaponType.values()){
-			if(weapon.equals(w.getWeapon())){
-				return w.getWeapon();
+		for(ItemList w: ItemList.values()){
+			if(weapon.equals(w.getCustomItem())){
+				return (Weapon) w.getCustomItem();
 			}
 		}
 		
@@ -65,9 +74,9 @@ public class Weapons {
 	}
 	
 	public static Weapon getWeapon(ItemStack weapon){
-		for(WeaponType w: WeaponType.values()){
-			if(weapon.equals(w.getWeapon().getItemStack())){
-				return w.getWeapon();
+		for(ItemList w: ItemList.values()){
+			if(weapon.equals(w.getCustomItem().getItemStack())){
+				return (Weapon) w.getCustomItem();
 			}
 		}
 		
@@ -76,8 +85,10 @@ public class Weapons {
 	
 	public static ArrayList<Weapon> getWeapons(){
 		ArrayList<Weapon> weapons = new ArrayList<Weapon>();
-		for(WeaponType w: WeaponType.values()){
-			weapons.add(w.getWeapon());
+		for(ItemList w: ItemList.values()){
+			if(w.getItemType().equals(ItemType.Weapon)){
+				weapons.add((Weapon) w.getCustomItem());
+			}
 		}
 		return weapons;
 	}

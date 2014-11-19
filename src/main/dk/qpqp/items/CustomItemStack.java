@@ -3,10 +3,7 @@
  */
 package main.dk.qpqp.items;
 
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.material.MaterialData;
 
 /**
  * This is the base of all custom made items by this plugin.
@@ -15,44 +12,19 @@ import org.bukkit.material.MaterialData;
  *
  */
 public abstract class CustomItemStack {
-	int amount = 0;
-	MaterialData data = null;
-	ItemMeta itemMeta = null;
-	Material material = null;
+	ItemStack itemStack = null;
+	ItemList itemList = null;
 	
-	public CustomItemStack(int amount, MaterialData data, ItemMeta itemMeta, Material material){
-		this.amount = amount;
-		this.data = data;
-		this.itemMeta = itemMeta;
-		this.material = material;
-	}
-	
-	public int getAmount(){
-		return amount;
-		
-	}
-	
-	public MaterialData getData(){
-		return data;
-		
-	}
-	
-	public ItemMeta getItemMeta(){
-		return itemMeta;
-		
-	}
-	
-	public Material getType(){
-		return material;
+	public CustomItemStack(ItemStack itemStack, ItemList itemList){
+		this.itemStack = itemStack;
 		
 	}
 	
 	public ItemStack getItemStack(){
-		return null;
-		
+		return itemStack;
 	}
 	
-	public void setAmount(int amount){
-		this.amount = amount;
+	public ItemList getItemList(){
+		return itemList;
 	}
 }
