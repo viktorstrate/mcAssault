@@ -1,7 +1,7 @@
 mcAssault
 =========
 
-Adds guns and grenades to the minecraft API Bukkit
+Adds guns and grenades to the minecraft Bukkit API
 
 Features
 =========
