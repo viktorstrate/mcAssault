@@ -17,7 +17,7 @@ public abstract class CustomItemStack {
 	
 	public CustomItemStack(ItemStack itemStack, ItemList itemList){
 		this.itemStack = itemStack;
-		
+		this.itemList = itemList;
 	}
 	
 	public ItemStack getItemStack(){
