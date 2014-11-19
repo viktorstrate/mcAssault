@@ -48,7 +48,6 @@ public class Weapons {
 	// **THIS IS THE SHOOTING MECHANIC**
 	// Accuracy is how precise the projectile will move,
 	// if the accuracy is 0 it will be 100% where the player is looking
-	@SuppressWarnings("deprecation")
 	public static void spawnProjectile(Player player, double accuracy, double speed){
 		
 		double randX, randY, randZ;
@@ -76,8 +75,10 @@ public class Weapons {
 	
 	public static Weapon getWeapon(ItemStack weapon){
 		for(ItemList w: ItemList.values()){
-			if(weapon.equals(w.getCustomItem().getItemStack())){
-				return (Weapon) w.getCustomItem();
+			if(weapon.getType().equals(w.getCustomItem().getItemStack().getType())){
+				if(weapon.getItemMeta().equals(w.getCustomItem().getItemStack().getItemMeta())){
+					return (Weapon) w.getCustomItem();
+				}
 			}
 		}
 		

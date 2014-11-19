@@ -29,7 +29,7 @@ public class McAssault extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new WeaponListener(plugin), this);
 		
 		// Logs that the plugin has been enabled and what version it is running
-		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled", plugin);
+		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled");
 		
 		
 	}

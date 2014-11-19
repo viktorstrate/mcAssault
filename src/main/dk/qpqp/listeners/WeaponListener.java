@@ -33,11 +33,11 @@ public class WeaponListener implements Listener {
 		Player player = event.getPlayer();
 		ItemStack itemInHand = player.getItemInHand();
 		if(itemInHand.getType().equals(Material.AIR)){
-			Message.playerMessage(itemInHand.getType().name(), player, plugin);
+			Message.playerMessage(itemInHand.getType().name(), player);
 		} else {
 			if(Items.isCustomItem(itemInHand)){
 				Weapon weapon = Weapons.getWeapon(itemInHand);
-				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player, plugin);
+				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player);
 				weapon.shoot(player);
 			}
 		}

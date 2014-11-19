@@ -8,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
 /**
  * This class is handling all the commands
@@ -19,8 +18,6 @@ import org.bukkit.plugin.Plugin;
 
 public class Commands {
 	public static boolean get(CommandSender sender, Command command, String label, String[] args, McAssault main){
-		// A copy of the plugin from McAssault
-		Plugin plugin = McAssault.plugin;
 		
 		Player player = (Player) sender;
 		// If command equals assault or guns
@@ -35,25 +32,25 @@ public class Commands {
 			if(args[0].equalsIgnoreCase("give")){
 				// if args length isn't 3 long show usage message
 				if(args.length!=3){
-					Message.playerMessage("Usage: /guns give <Username> <ItemName>", player, plugin);
+					Message.playerMessage("Usage: /guns give <Username> <ItemName>", player);
 					return false;
 				} else { // Else give player custom item
 						Player receivePlayer = McAssault.findPlayer(args[1]);
 						// If no player was found from the arg[1]
 						if(receivePlayer==null){
-							Message.playerMessage("Player not found", player, plugin);
+							Message.playerMessage("Player not found", player);
 							return false;
 						} else {
 							// If player is found
 							CustomItemStack item = Items.getCustomItemStack(args[2]);
 							if(item!=null){
 								// gives the item
-								Message.playerMessage("Item given!", receivePlayer, plugin);
+								Message.playerMessage("Item given!", receivePlayer);
 								receivePlayer.getInventory().addItem(item.getItemStack());
 								return true;
 							} else {
 								// If the item wasn't found show message
-								Message.playerMessage("Item not found", player, plugin);
+								Message.playerMessage("Item not found", player);
 								return false;
 							}
 						}
