@@ -2,6 +2,7 @@ package main.dk.qpqp;
 
 import main.dk.qpqp.items.CustomItemStack;
 import main.dk.qpqp.items.Items;
+import main.dk.qpqp.items.weapons.WeaponList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -57,6 +58,10 @@ public class Commands {
 							}
 						}
 				}
+			}else if(args[0].equalsIgnoreCase("list")){
+				
+				WeaponList.showWeaponList(sender, 1);
+				
 			}
 		}
 		
@@ -74,6 +79,7 @@ public class Commands {
 		
 		player.sendMessage(ChatColor.YELLOW + "/guns" + ChatColor.WHITE + " Shows this help screen.");
 		player.sendMessage(ChatColor.YELLOW + "/guns give <Username> <ItemName>" + ChatColor.WHITE + " Gives a gun.");
+		player.sendMessage(ChatColor.YELLOW + "/guns list [Page]" + ChatColor.WHITE + " See all the gun ID's");
 		
 		//New Messages: player.sendMessage(ChatColor.YELLOW + "COMMAND" + ChatColor.WHITE + " INFORMATION");
 	}
