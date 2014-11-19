@@ -31,7 +31,7 @@ public class McAssault extends JavaPlugin {
 		// Logs that the plugin has been enabled and what version it is running
 		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled");
 		
-		
+
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
