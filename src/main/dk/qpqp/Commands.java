@@ -1,8 +1,10 @@
 package main.dk.qpqp;
 
+import java.util.HashMap;
+
 import main.dk.qpqp.items.CustomItemStack;
+import main.dk.qpqp.items.ItemList;
 import main.dk.qpqp.items.Items;
-import main.dk.qpqp.items.weapons.WeaponList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -60,7 +62,7 @@ public class Commands {
 				}
 			}else if(args[0].equalsIgnoreCase("list")){
 				
-				WeaponList.showWeaponList(sender, 1);
+				showWeaponList(sender, 1);
 				
 			}
 		}
@@ -82,5 +84,36 @@ public class Commands {
 		player.sendMessage(ChatColor.YELLOW + "/guns list [Page]" + ChatColor.WHITE + " See all the gun ID's");
 		
 		//New Messages: player.sendMessage(ChatColor.YELLOW + "COMMAND" + ChatColor.WHITE + " INFORMATION");
+	}
+	
+	public static void showWeaponList(CommandSender sender, int page){
+		
+		int higestId = 0;
+		
+		//Begin
+		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.prefix + ChatColor.GREEN + " =====");
+		
+		// Hashmap with a key of the id of the item and the item
+		HashMap<Integer, ItemList> items = new HashMap<Integer, ItemList>();
+		
+		// Fills out the hashmap
+		for(ItemList item: ItemList.values()){
+			// if is is on page
+			if(item.getId()>=(page-1)*10 && item.getId()<=(page-1)*10+10){
+				items.put(item.getId(), item);
+				// if last higest id is smaller that the current id, make that id the higest
+				if(higestId<item.getId()){
+					higestId=item.getId();
+				}
+			}
+		}
+		
+		for(ItemList item: items.values()){
+			sender.sendMessage(ChatColor.GREEN + item.getName()+ ChatColor.WHITE+" with id"+ ChatColor.GREEN + item.getId());
+		}
+		
+		//End
+		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + "Page "+page+" / "+ higestId*10 + ChatColor.GREEN + " =====");
+		
 	}
 }
