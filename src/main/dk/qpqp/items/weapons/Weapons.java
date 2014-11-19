@@ -48,6 +48,7 @@ public class Weapons {
 	// **THIS IS THE SHOOTING MECHANIC**
 	// Accuracy is how precise the projectile will move,
 	// if the accuracy is 0 it will be 100% where the player is looking
+	@SuppressWarnings("deprecation")
 	public static void spawnProjectile(Player player, double accuracy, double speed){
 		
 		double randX, randY, randZ;

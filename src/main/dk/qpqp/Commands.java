@@ -20,7 +20,7 @@ import org.bukkit.plugin.Plugin;
 public class Commands {
 	public static boolean get(CommandSender sender, Command command, String label, String[] args, McAssault main){
 		// A copy of the plugin from McAssault
-		Plugin plugin = main.plugin;
+		Plugin plugin = McAssault.plugin;
 		
 		Player player = (Player) sender;
 		// If command equals assault or guns
@@ -62,6 +62,8 @@ public class Commands {
 				
 				WeaponList.showWeaponList(sender, 1);
 				
+			}else if(args[0].equalsIgnoreCase("info")){
+				Info.getDefaultInfo(player);
 			}
 		}
 		
@@ -80,6 +82,7 @@ public class Commands {
 		player.sendMessage(ChatColor.YELLOW + "/guns" + ChatColor.WHITE + " Shows this help screen.");
 		player.sendMessage(ChatColor.YELLOW + "/guns give <Username> <ItemName>" + ChatColor.WHITE + " Gives a gun.");
 		player.sendMessage(ChatColor.YELLOW + "/guns list [Page]" + ChatColor.WHITE + " See all the gun ID's");
+		player.sendMessage(ChatColor.YELLOW + "/guns info" + ChatColor.WHITE + " See the basic plugin info in-game!");
 		
 		//New Messages: player.sendMessage(ChatColor.YELLOW + "COMMAND" + ChatColor.WHITE + " INFORMATION");
 	}
