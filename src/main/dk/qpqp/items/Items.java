@@ -2,13 +2,12 @@ package main.dk.qpqp.items;
 
 import java.util.ArrayList;
 
-import main.dk.qpqp.items.weapons.WeaponType;
 import main.dk.qpqp.items.weapons.Weapons;
 
 import org.bukkit.inventory.ItemStack;
 
 /**
- * General item functions
+ * General item functions.
  * 
  * @author Viktor Strate
  */
@@ -18,8 +17,8 @@ public class Items {
 		
 		// Check weapons
 		for(CustomItemStack itm: Weapons.getWeapons()){
-			if(itm.getType().equals(item.getType())){
-				if(itm.getItemMeta().equals(item.getItemMeta())){
+			if(itm.getItemStack().getType().equals(item.getType())){
+				if(itm.getItemStack().getItemMeta().equals(item.getItemMeta())){
 					return itm;
 				}
 			}
@@ -31,9 +30,9 @@ public class Items {
 	public static CustomItemStack getCustomItemStack(String itemname){
 		
 		// Check weapons
-		for(WeaponType wt: WeaponType.values()){
+		for(ItemList wt: ItemList.values()){
 			if(wt.getName().equalsIgnoreCase(itemname)){
-				return wt.getWeapon();
+				return wt.getCustomItem();
 			}
 		}
 		
@@ -45,7 +44,7 @@ public class Items {
 		
 		ArrayList<CustomItemStack> customItems = new ArrayList<CustomItemStack>();
 		
-		for(WeaponType weapon: WeaponType.values()){
+		for(ItemList weapon: ItemList.values()){
 			customItems.add(Weapons.getWeapon(weapon));
 		}
 		

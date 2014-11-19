@@ -10,6 +10,12 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * This is the main file, from here everything happens.
+ * @author Viktor
+ *
+ */
+
 public class McAssault extends JavaPlugin {
 	
 	public Plugin plugin;
@@ -19,18 +25,22 @@ public class McAssault extends JavaPlugin {
 		plugin = this;
 		pdf = plugin.getDescription();
 		
+		// Registers the listener that handles the Weapon's shoot mechanics and things like that
 		getServer().getPluginManager().registerEvents(new WeaponListener(plugin), this);
 		
+		// Logs that the plugin has been enabled and what version it is running
 		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled", plugin);
 		
 		
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		
+		// Sends the command to another class
 		return Commands.get(sender, command, label, args, this);
 	}
 	
+	// Finds a player based on their username.
+	// if no one found returns null
 	public static Player findPlayer(String username){
 		for(Player player: Bukkit.getOnlinePlayers()){
 			if(player.getName().equalsIgnoreCase(username)){

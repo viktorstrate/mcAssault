@@ -13,6 +13,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
+/**
+ * This file handles all the weapon listener stuff.
+ * Like shooting.
+ * @author Viktor
+ *
+ */
+
 public class WeaponListener implements Listener {
 	
 	Plugin plugin;
@@ -30,7 +37,8 @@ public class WeaponListener implements Listener {
 		} else {
 			if(Items.isCustomItem(itemInHand)){
 				Weapon weapon = Weapons.getWeapon(itemInHand);
-				Message.playerMessage("Is shooting a "+weapon.getWeaponType(), player, plugin);
+				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player, plugin);
+				weapon.shoot(player);
 			}
 		}
 	}

@@ -3,30 +3,28 @@
  */
 package main.dk.qpqp.items;
 
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.material.MaterialData;
 
 /**
+ * This is the base of all custom made items by this plugin.
+ * All the guns and grenades.
  * @author Viktor Strate
  *
  */
-public abstract interface CustomItemStack {
-	int amount = 0;
-	MaterialData data = null;
-	ItemMeta itemMeta = null;
-	Material material = null;
+public abstract class CustomItemStack {
+	ItemStack itemStack = null;
+	ItemList itemList = null;
 	
-	public int getAmount();
+	public CustomItemStack(ItemStack itemStack, ItemList itemList){
+		this.itemStack = itemStack;
+		
+	}
 	
-	public MaterialData getData();
+	public ItemStack getItemStack(){
+		return itemStack;
+	}
 	
-	public ItemMeta getItemMeta();
-	
-	public Material getType();
-	
-	public ItemStack getItemStack();
-	
-	public void setAmount(int amount);
+	public ItemList getItemList(){
+		return itemList;
+	}
 }
