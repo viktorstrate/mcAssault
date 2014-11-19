@@ -14,21 +14,45 @@ import org.bukkit.material.MaterialData;
  * @author Viktor Strate
  *
  */
-public abstract interface CustomItemStack {
+public abstract class CustomItemStack {
 	int amount = 0;
 	MaterialData data = null;
 	ItemMeta itemMeta = null;
 	Material material = null;
 	
-	public int getAmount();
+	public CustomItemStack(int amount, MaterialData data, ItemMeta itemMeta, Material material){
+		this.amount = amount;
+		this.data = data;
+		this.itemMeta = itemMeta;
+		this.material = material;
+	}
 	
-	public MaterialData getData();
+	public int getAmount(){
+		return amount;
+		
+	}
 	
-	public ItemMeta getItemMeta();
+	public MaterialData getData(){
+		return data;
+		
+	}
 	
-	public Material getType();
+	public ItemMeta getItemMeta(){
+		return itemMeta;
+		
+	}
 	
-	public ItemStack getItemStack();
+	public Material getType(){
+		return material;
+		
+	}
 	
-	public void setAmount(int amount);
+	public ItemStack getItemStack(){
+		return null;
+		
+	}
+	
+	public void setAmount(int amount){
+		this.amount = amount;
+	}
 }

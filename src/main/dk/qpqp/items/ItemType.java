@@ -1,7 +1,5 @@
 package main.dk.qpqp.items;
 
-import main.dk.qpqp.items.weapons.Weapon;
-import main.dk.qpqp.items.weapons.WeaponType;
 import main.dk.qpqp.items.weapons.items.AK47;
 import main.dk.qpqp.items.weapons.items.Glock;
 
@@ -21,9 +19,9 @@ public enum ItemType {
 		return id;
 	}
 	
-	public Weapon getWeapon(){
-		for(WeaponType w: WeaponType.values()){
-			if(w.getWeaponId()==id){
+	public CustomItemStack getCustomItem(){
+		for(ItemType w: ItemType.values()){
+			if(w.getId()==id){
 				switch(w){
 				case AK47:
 					return new AK47();

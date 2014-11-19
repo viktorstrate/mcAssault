@@ -1,6 +1,7 @@
 package main.dk.qpqp.items.weapons;
 
 import main.dk.qpqp.items.CustomItemStack;
+import main.dk.qpqp.items.ItemType;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,9 +15,15 @@ import org.bukkit.material.MaterialData;
  *
  */
 
-public abstract class Weapon implements CustomItemStack {
+public abstract class Weapon extends CustomItemStack {
 	
-	WeaponType weaponType = null;
+	public Weapon(int amount, MaterialData data, ItemMeta itemMeta,
+			Material material) {
+		super(amount, data, itemMeta, material);
+		// TODO Auto-generated constructor stub
+	}
+
+	ItemType itemType = null;
 	ShootType shootType = null;
 	
 	public enum ShootType{
@@ -25,20 +32,7 @@ public abstract class Weapon implements CustomItemStack {
 	}
 	
 	// Creates the weapon
-	public Weapon(ItemStack item, WeaponType weaponType){
-		this.amount = item.getAmount();
-		this.data = item.getData();
-		this.itemMeta = item.getItemMeta();
-		this.material = item.getType();
-		this.weaponType = weaponType;
-		
-		ItemStack itemStack = new ItemStack(material);
-		itemStack.setData(data);
-		itemStack.setAmount(amount);
-		itemStack.setItemMeta(itemMeta);
-		
-		this.itemStack = itemStack;
-	}
+	
 	
 	// Custom ItemStack setup down below.
 	
@@ -108,12 +102,12 @@ public abstract class Weapon implements CustomItemStack {
 		this.shootType = shootType;
 	}
 	
-	public int getWeaponId(){
-		return weaponType.getWeaponId();
+	public int getId(){
+		return itemType.getId();
 	}
 	
-	public WeaponType getWeaponType(){
-		return weaponType;
+	public ItemType getWeaponType(){
+		return itemType;
 	}
 	
 	
