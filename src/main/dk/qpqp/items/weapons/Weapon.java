@@ -109,15 +109,7 @@ public abstract class Weapon implements CustomItemStack {
 	}
 	
 	public int getWeaponId(){
-		int id = 0;
-		for(WeaponType type: WeaponType.values()){
-			if(type.equals(weaponType)){
-				break;
-			}
-			id++;
-		}
-		
-		return id;
+		return weaponType.getWeaponId();
 	}
 	
 	public WeaponType getWeaponType(){
