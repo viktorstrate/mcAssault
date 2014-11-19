@@ -1,6 +1,8 @@
 name: McAssault
+description: Adds guns and grenades to the minecraft Bukkit API!
 main: main.dk.qpqp.McAssault
 version: 1.0
+author: Viktorstrate & Niek1e
 commands:
    assault:
       description: Assault command

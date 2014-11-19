@@ -18,7 +18,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class McAssault extends JavaPlugin {
 	
-	public Plugin plugin;
+	public static Plugin plugin;
 	public PluginDescriptionFile pdf;
 	
 	public void onEnable(){
