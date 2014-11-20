@@ -1,11 +1,13 @@
 package main.dk.qpqp.items;
 
+import main.dk.qpqp.items.grenades.items.HandGrenade;
 import main.dk.qpqp.items.weapons.items.AK47;
 import main.dk.qpqp.items.weapons.items.Glock;
 
 public enum ItemList {
 	AK47 (0, "AK47", ItemType.Weapon),
-	Glock (1, "Glock", ItemType.Weapon);
+	Glock (1, "Glock", ItemType.Weapon),
+	HandGrenade(2, "HandGrenade", ItemType.Grenade);
 	
 	private int id;
 	private String name;
@@ -14,6 +16,18 @@ public enum ItemList {
 	public static enum ItemType{
 		Weapon,
 		Grenade
+	}
+	
+	private static CustomItemStack getClass(ItemList itm){
+		switch(itm){
+		case AK47:
+			return new AK47();
+		case Glock:
+			return new Glock();
+		case HandGrenade:
+			return new HandGrenade();
+		}
+		return null;
 	}
 	
 	ItemList(int id, String name, ItemType itemType){
@@ -29,12 +43,7 @@ public enum ItemList {
 	public CustomItemStack getCustomItem(){
 		for(ItemList w: ItemList.values()){
 			if(w.getId()==id){
-				switch(w){
-				case AK47:
-					return new AK47();
-				case Glock:
-					return new Glock();
-				}
+				return getClass(w);
 			}
 		}
 		
@@ -44,12 +53,7 @@ public enum ItemList {
 	public static CustomItemStack getCustomItem(int id){
 		for(ItemList w: ItemList.values()){
 			if(w.getId()==id){
-				switch(w){
-				case AK47:
-					return new AK47();
-				case Glock:
-					return new Glock();
-				}
+				return getClass(w);
 			}
 		}
 		
