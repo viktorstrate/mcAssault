@@ -42,14 +42,20 @@ public class Commands {
 						if(receivePlayer==null){
 							Message.playerMessage("Player not found", player);
 							return false;
-						} else {
-							// If player is found
-							CustomItemStack item = Items.getCustomItemStack(args[2]);
+						} else { // <- If player is found
+							CustomItemStack item = null;
+							// If args[2] is a number give item by id
+							if(Misc.isNumeric(args[2])){
+								item = Items.getCustomItemStack(Integer.parseInt(args[2]));
+							}
+							
+							if(item==null) item = Items.getCustomItemStack(args[2]);
 							if(item!=null){
 								// gives the item
 								Message.playerMessage("Item given!", receivePlayer);
 								receivePlayer.getInventory().addItem(item.getItemStack());
 								return true;
+							// if is a number test if they typed in the id of the custom item
 							} else {
 								// If the item wasn't found show message
 								Message.playerMessage("Item not found", player);
