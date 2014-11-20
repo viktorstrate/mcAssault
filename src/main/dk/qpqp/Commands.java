@@ -80,7 +80,7 @@ public class Commands {
 		
 		//Begin
 		
-		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.prefix + ChatColor.GREEN + " =====");
+		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.coloredPrefix + ChatColor.GREEN + " =====");
 		
 		//Commands
 		
@@ -98,7 +98,7 @@ public static void showWeaponList(CommandSender sender, int page){
 		int higestId = 0;
 		
 		//Begin
-		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.prefix + ChatColor.GREEN + " =====");
+		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.coloredPrefix + ChatColor.GREEN + " =====");
 		
 		// Hashmap with a key of the id of the item and the item
 		HashMap<Integer, ItemList> items = new HashMap<Integer, ItemList>();

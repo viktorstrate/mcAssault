@@ -12,6 +12,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
@@ -35,15 +36,19 @@ public class WeaponListener implements Listener {
 	@EventHandler
 	public void onInteract(PlayerInteractEvent event){
 		Player player = event.getPlayer();
-		ItemStack itemInHand = player.getItemInHand();
-		if(itemInHand.getType().equals(Material.AIR)){
-			Message.playerMessage(itemInHand.getType().name(), player);
-		} else {
-			if(Items.isCustomItem(itemInHand)){
-				Weapon weapon = Weapons.getWeapon(itemInHand);
-//				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player);
-				weapon.shoot(player);
+		if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK){
+			ItemStack itemInHand = player.getItemInHand();
+			if(itemInHand.getType().equals(Material.AIR)){
+				Message.playerMessage(itemInHand.getType().name(), player);
+			} else {
+				if(Items.isCustomItem(itemInHand)){
+					Weapon weapon = Weapons.getWeapon(itemInHand);
+	//				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player);
+					weapon.shoot(player);
+				}
 			}
+		}else{
+			
 		}
 	}
 	

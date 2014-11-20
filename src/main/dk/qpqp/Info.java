@@ -14,7 +14,7 @@ public class Info {
 		plugin = McAssault.plugin;
 		pdf = plugin.getDescription();
 		
-		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.prefix + ChatColor.GREEN + " =====");
+		player.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.coloredPrefix + ChatColor.GREEN + " =====");
 		player.sendMessage(ChatColor.YELLOW + "Plugin Name: " + ChatColor.WHITE + pdf.getName());
 		player.sendMessage(ChatColor.YELLOW + "Plugin Description: " + ChatColor.WHITE + pdf.getDescription());
 		player.sendMessage(ChatColor.YELLOW + "Plugin Version: " + ChatColor.WHITE + pdf.getVersion());

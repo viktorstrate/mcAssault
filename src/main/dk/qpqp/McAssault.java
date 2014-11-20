@@ -1,6 +1,7 @@
 package main.dk.qpqp;
 
 import main.dk.qpqp.listeners.WeaponListener;
+import main.dk.qpqp.listeners.ZoomListener;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -27,6 +28,7 @@ public class McAssault extends JavaPlugin {
 		
 		// Registers the listener that handles the Weapon's shoot mechanics and things like that
 		getServer().getPluginManager().registerEvents(new WeaponListener(plugin), this);
+		getServer().getPluginManager().registerEvents(new ZoomListener(plugin), this);
 		
 		// Logs that the plugin has been enabled and what version it is running
 		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled");

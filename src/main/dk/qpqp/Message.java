@@ -1,5 +1,6 @@
 package main.dk.qpqp;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
@@ -12,10 +13,11 @@ public class Message {
 	
 	public static String name = "McAssault";
 	public static String prefix = "["+name+"]";
+	public static String coloredPrefix = ChatColor.AQUA + "[" + ChatColor.YELLOW + name + ChatColor.AQUA + "]";
 	
 	// Sends a player a message with the plugin's prefix
 	public static void playerMessage(String message, Player player){
-		player.sendMessage(prefix+" "+message);
+		player.sendMessage(coloredPrefix+" "+message);
 	}
 	
 	// Logs info to the console
