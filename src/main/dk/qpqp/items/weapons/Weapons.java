@@ -57,7 +57,7 @@ public class Weapons {
 		
 		Snowball bullet = player.getWorld().spawn(player.getEyeLocation(), Snowball.class);
 		Vector velocity = new Vector().setX(randX).setY(randY).setZ(randZ);
-		velocity.add(player.getLocation().getDirection().multiply(1.5));
+		velocity.add(player.getLocation().getDirection().multiply(speed));
 		bullet.setVelocity(velocity); 
 		bullet.setShooter(player);
 		bullets.put(bullet.getEntityId(), new BulletInfo(bullet, player));
