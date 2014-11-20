@@ -40,6 +40,19 @@ public class Items {
 		
 	}
 	
+	public static CustomItemStack getCustomItemStack(int itemId){
+		
+		// Check weapons
+		for(ItemList wt: ItemList.values()){
+			if(wt.getId()==itemId){
+				return wt.getCustomItem();
+			}
+		}
+		
+		return null;
+		
+	}
+	
 	public static ItemList getItemList(CustomItemStack item){
 		for(ItemList itemList: ItemList.values()){
 			if(itemList.getCustomItem().getItemStack().getType().equals(item.itemStack.getType())){

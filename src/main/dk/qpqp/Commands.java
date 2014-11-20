@@ -5,7 +5,6 @@ import java.util.HashMap;
 import main.dk.qpqp.items.CustomItemStack;
 import main.dk.qpqp.items.ItemList;
 import main.dk.qpqp.items.Items;
-import main.dk.qpqp.items.weapons.WeaponList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -35,7 +34,7 @@ public class Commands {
 			if(args[0].equalsIgnoreCase("give")){
 				// if args length isn't 3 long show usage message
 				if(args.length!=3){
-					Message.playerMessage("Usage: /guns give <Username> <ItemName>", player);
+					Message.playerMessage("Usage: /guns give <Username> <Item>", player);
 					return false;
 				} else { // Else give player custom item
 						Player receivePlayer = McAssault.findPlayer(args[1]);
@@ -60,7 +59,7 @@ public class Commands {
 				}
 			}else if(args[0].equalsIgnoreCase("list")){
 				
-				WeaponList.showWeaponList(sender, 1);
+				showWeaponList(sender, 1);
 				
 			}else if(args[0].equalsIgnoreCase("info")){
 				Info.getDefaultInfo(player);
