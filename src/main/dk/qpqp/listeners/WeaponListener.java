@@ -41,7 +41,7 @@ public class WeaponListener implements Listener {
 		} else {
 			if(Items.isCustomItem(itemInHand)){
 				Weapon weapon = Weapons.getWeapon(itemInHand);
-				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player);
+//				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player);
 				weapon.shoot(player);
 			}
 		}
@@ -55,7 +55,7 @@ public class WeaponListener implements Listener {
 			
 			for(BulletInfo bullet: Weapons.bullets.values()){
 				if(bullet.getEntity().getEntityId()==damager.getEntityId()){
-					event.setDamage(100);
+					event.setDamage(5);
 				}
 			}
 			

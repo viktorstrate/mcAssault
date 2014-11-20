@@ -3,11 +3,13 @@ package main.dk.qpqp.items;
 import main.dk.qpqp.items.grenades.items.HandGrenade;
 import main.dk.qpqp.items.weapons.items.AK47;
 import main.dk.qpqp.items.weapons.items.Glock;
+import main.dk.qpqp.items.weapons.items.Uzi;
 
 public enum ItemList {
 	AK47 (0, "AK47", ItemType.Weapon),
 	Glock (1, "Glock", ItemType.Weapon),
-	HandGrenade(2, "HandGrenade", ItemType.Grenade);
+	HandGrenade(2, "HandGrenade", ItemType.Grenade),
+	Uzi (2, "Uzi", ItemType.Weapon);
 	
 	private int id;
 	private String name;
@@ -26,6 +28,8 @@ public enum ItemList {
 			return new Glock();
 		case HandGrenade:
 			return new HandGrenade();
+		case Uzi:
+			return new Uzi();
 		}
 		return null;
 	}
@@ -54,6 +58,7 @@ public enum ItemList {
 		for(ItemList w: ItemList.values()){
 			if(w.getId()==id){
 				return getClass(w);
+
 			}
 		}
 		
