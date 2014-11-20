@@ -34,7 +34,7 @@ public class Commands {
 			if(args[0].equalsIgnoreCase("give")){
 				// if args length isn't 3 long show usage message
 				if(args.length!=3){
-					Message.playerMessage("Usage: /guns give <Username> <ItemName>", player);
+					Message.playerMessage("Usage: /guns give <Username> <Item>", player);
 					return false;
 				} else { // Else give player custom item
 						Player receivePlayer = McAssault.findPlayer(args[1]);

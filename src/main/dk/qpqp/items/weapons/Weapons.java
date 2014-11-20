@@ -10,7 +10,6 @@ import main.dk.qpqp.items.CustomItemStack;
 import main.dk.qpqp.items.ItemList;
 import main.dk.qpqp.items.ItemList.ItemType;
 
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
@@ -31,7 +30,8 @@ public class Weapons {
 	}
 
 	// Keeps track of the bullet's owners
-	public static HashMap<Entity, Player> bullets = new HashMap<Entity, Player>();
+	// EntityId and Data about bullet
+	public static HashMap<Integer, BulletInfo> bullets = new HashMap<Integer, BulletInfo>();
 	
 	public static Weapon getWeapon(ItemList item){
 		if(item.getItemType().equals(ItemType.Weapon)){
@@ -60,7 +60,7 @@ public class Weapons {
 		velocity.add(player.getLocation().getDirection().multiply(1.5));
 		bullet.setVelocity(velocity); 
 		bullet.setShooter(player);
-		bullets.put(bullet, player);
+		bullets.put(bullet.getEntityId(), new BulletInfo(bullet, player));
 	}
 	
 	public static Weapon getWeapon(CustomItemStack weapon){
