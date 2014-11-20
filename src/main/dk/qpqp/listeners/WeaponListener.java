@@ -5,10 +5,16 @@ import main.dk.qpqp.items.Items;
 import main.dk.qpqp.items.weapons.Weapon;
 import main.dk.qpqp.items.weapons.Weapons;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Damageable;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
@@ -42,4 +48,27 @@ public class WeaponListener implements Listener {
 			}
 		}
 	}
+	
+	@EventHandler
+	public void onDamageByWeapon(EntityDamageByEntityEvent event){
+		Bukkit.broadcastMessage("lol");
+		if(event.getDamager().getType().equals(EntityType.SNOWBALL)){
+			
+			Bukkit.broadcastMessage("lol");
+			
+			Snowball snowball = (Snowball) event.getDamager();
+			Player shooter = (Player) snowball.getShooter();
+			Entity damaged = event.getEntity();
+			
+			ItemStack itemInHand = shooter.getItemInHand();
+			
+			if(Items.isCustomItem(itemInHand)){
+				Bukkit.broadcastMessage("lol");
+				((Damageable) damaged).damage(100.0);
+				
+			}
+			
+		}
+	}
+
 }
