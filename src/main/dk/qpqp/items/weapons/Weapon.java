@@ -23,7 +23,7 @@ public abstract class Weapon extends CustomItemStack {
 	ShootType shootType = null;
 	
 	public void shoot(Player player){
-		Weapons.spawnProjectile(player, 0, 5);
+		Weapons.spawnProjectile(player, 0.01, 3);
 	}
 	
 }
