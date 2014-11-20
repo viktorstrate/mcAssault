@@ -17,7 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class Uzi extends Weapon {
 	
 	public Uzi() {
-			super(item, ItemList.Glock, ShootType.SEMI_AUTOMATIC);
+			super(item, ItemList.Uzi, ShootType.SEMI_AUTOMATIC);
 		}
 	
 	private static final ItemStack item = getItem();
