@@ -87,38 +87,7 @@ public class Commands {
 
 	}
 	
-	public static void showWeaponList(CommandSender sender, int page){
-		
-		int amount = 0;
-		
-		//Begin
-		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + Message.prefix + ChatColor.GREEN + " =====");
-		
-		// Hashmap with a key of the id of the item and the item
-		HashMap<Integer, ItemList> items = new HashMap<Integer, ItemList>();
-		
-		// Fills out the hashmap
-		for(ItemList item: ItemList.values()){
-			// if is is on page
-			if(item.getId()>=(page-1)*10 && item.getId()<=(page-1)*10+10){
-				items.put(item.getId(), item);
-				// increases the amount
-				amount++;
-			}
-		}
-		
-		for(ItemList item: items.values()){
-			sender.sendMessage(ChatColor.GREEN + item.getName()+ ChatColor.WHITE+" with id "+ ChatColor.GREEN + item.getId());
-		}
-		
-		Double lastPage = Math.ceil((double) (amount/10.0f));
-		
-		//End
-		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + "Page "+page+" / "+ lastPage.intValue() + ChatColor.GREEN + " =====");
-
-	}
-	
-	public static void showWeaponList(CommandSender sender, int page){
+public static void showWeaponList(CommandSender sender, int page){
 		
 		int higestId = 0;
 		
@@ -148,4 +117,6 @@ public class Commands {
 		sender.sendMessage(ChatColor.GREEN + "===== " + ChatColor.AQUA + "Page "+page+" / "+ higestId*10 + ChatColor.GREEN + " =====");
 		
 	}
+	
+	
 }
