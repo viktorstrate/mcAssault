@@ -55,7 +55,7 @@ public class WeaponListener implements Listener {
 			
 			for(BulletInfo bullet: Weapons.bullets.values()){
 				if(bullet.getEntity().getEntityId()==damager.getEntityId()){
-					event.setDamage(100);
+					event.setDamage(5);
 				}
 			}
 			
