@@ -116,7 +116,7 @@ public static void showWeaponList(CommandSender sender, int page){
 		}
 		
 		for(ItemList item: items.values()){
-			sender.sendMessage(ChatColor.GREEN + item.getName()+ ChatColor.WHITE+" with id"+ ChatColor.GREEN + item.getId());
+			sender.sendMessage(ChatColor.GREEN + item.getName()+ ChatColor.WHITE+" with id "+ ChatColor.GREEN + item.getId());
 		}
 		
 		//End
