@@ -9,7 +9,7 @@ public enum ItemList {
 	AK47 (0, "AK47", ItemType.Weapon),
 	Glock (1, "Glock", ItemType.Weapon),
 	HandGrenade(2, "HandGrenade", ItemType.Grenade),
-	Uzi (2, "Uzi", ItemType.Weapon);
+	Uzi (3, "Uzi", ItemType.Weapon);
 	
 	private int id;
 	private String name;
