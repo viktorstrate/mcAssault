@@ -45,9 +45,12 @@ public class Weapons {
 		return null;
 	}
 	
-	// **THIS IS THE SHOOTING MECHANIC**
-	// Accuracy is how precise the projectile will move,
-	// if the accuracy is 0 it will be 100% where the player is looking
+	/**
+	 * This is the shooting mechanic
+	 * @param player the player that the projectile should be spawned at
+	 * @param accuracy the accuracy of the projectile, 0 is 100% accurate
+	 * @param speed the speed the projectile will have
+	 */
 	public static void spawnProjectile(Player player, double accuracy, double speed){
 		
 		double randX, randY, randZ;
@@ -65,11 +68,12 @@ public class Weapons {
 	
 	public static Weapon getWeapon(CustomItemStack weapon){
 		for(ItemList w: ItemList.values()){
-			if(weapon.equals(w.getCustomItem())){
-				return (Weapon) w.getCustomItem();
+			if(weapon.getItemStack().getType().equals(w.getCustomItem().getItemStack().getType())){
+				if(weapon.getItemStack().getItemMeta().equals(w.getCustomItem().getItemStack().getItemMeta())){
+					return (Weapon) w.getCustomItem();
+				}
 			}
 		}
-		
 		return null;
 	}
 	
@@ -85,6 +89,10 @@ public class Weapons {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @return all weapons in an arraylist
+	 */
 	public static ArrayList<Weapon> getWeapons(){
 		ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 		for(ItemList w: ItemList.values()){

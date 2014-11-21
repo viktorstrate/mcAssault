@@ -1,6 +1,7 @@
 package main.dk.qpqp.listeners;
 
 import main.dk.qpqp.Message;
+import main.dk.qpqp.items.ItemList.ItemType;
 import main.dk.qpqp.items.Items;
 import main.dk.qpqp.items.weapons.BulletInfo;
 import main.dk.qpqp.items.weapons.Weapon;
@@ -15,7 +16,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
 
 /**
  * This file handles all the weapon listener stuff.
@@ -26,10 +26,7 @@ import org.bukkit.plugin.Plugin;
 
 public class WeaponListener implements Listener {
 	
-	Plugin plugin;
-	
-	public WeaponListener(Plugin plugin) {
-		this.plugin = plugin;
+	public WeaponListener() {
 	}
 	
 	@EventHandler
@@ -39,10 +36,14 @@ public class WeaponListener implements Listener {
 		if(itemInHand.getType().equals(Material.AIR)){
 			Message.playerMessage(itemInHand.getType().name(), player);
 		} else {
+			// Checks if the item is a custom item
 			if(Items.isCustomItem(itemInHand)){
+				// Checks if the custom item is a weapon
+				//if(Weapons.isWeapon(Items.getCustomItemStack(itemInHand))){
+				if(Items.getCustomItemStack(itemInHand).getItemList().getItemType().equals(ItemType.Weapon)){
 				Weapon weapon = Weapons.getWeapon(itemInHand);
-//				Message.playerMessage("Is shooting a "+weapon.getItemList().getName(), player);
 				weapon.shoot(player);
+				}
 			}
 		}
 	}
