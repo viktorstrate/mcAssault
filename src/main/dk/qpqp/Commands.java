@@ -33,24 +33,38 @@ public class Commands {
 			// if first arg is give
 			if(args[0].equalsIgnoreCase("give")){
 				// if args length isn't 3 long show usage message
-				if(args.length!=3){
-					Message.playerMessage("Usage: /guns give <Username> <Item>", player);
+				if(args.length!=3 || args.length!=4){
+					Message.playerMessage("Usage: /guns give <Username> <Item> [Amount]", player);
 					return false;
 				} else { // Else give player custom item
 						Player receivePlayer = McAssault.findPlayer(args[1]);
+						
 						// If no player was found from the arg[1]
 						if(receivePlayer==null){
 							Message.playerMessage("Player not found", player);
 							return false;
 						} else { // <- If player is found
+							
 							CustomItemStack item = null;
+							
 							// If args[2] is a number give item by id
 							if(Misc.isNumeric(args[2])){
 								item = Items.getCustomItemStack(Integer.parseInt(args[2]));
 							}
 							
 							if(item==null) item = Items.getCustomItemStack(args[2]);
+							
 							if(item!=null){
+								
+								// if typed amount set amount
+								if(!args[3].isEmpty()){
+									if(Misc.isNumeric(args[3])){
+										item.getItemStack().setAmount(Integer.parseInt(args[3]));
+									} else {
+										Message.playerMessage("Amount must be a number", player);
+									}
+								}
+								
 								// gives the item
 								Message.playerMessage("Item given!", receivePlayer);
 								receivePlayer.getInventory().addItem(item.getItemStack());

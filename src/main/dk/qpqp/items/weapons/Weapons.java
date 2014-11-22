@@ -51,7 +51,7 @@ public class Weapons {
 	 * @param accuracy the accuracy of the projectile, 0 is 100% accurate
 	 * @param speed the speed the projectile will have
 	 */
-	public static void spawnProjectile(Player player, double accuracy, double speed){
+	public static void spawnProjectile(Player player, double accuracy, double speed, ItemList weapon){
 		
 		double randX, randY, randZ;
 		randX = Math.random()*accuracy;
@@ -63,7 +63,7 @@ public class Weapons {
 		velocity.add(player.getLocation().getDirection().multiply(speed));
 		bullet.setVelocity(velocity); 
 		bullet.setShooter(player);
-		bullets.put(bullet.getEntityId(), new BulletInfo(bullet, player));
+		bullets.put(bullet.getEntityId(), new BulletInfo(bullet, player, weapon));
 	}
 	
 	public static Weapon getWeapon(CustomItemStack weapon){
