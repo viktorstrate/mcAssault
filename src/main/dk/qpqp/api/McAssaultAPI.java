@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
  * 
  */
 
-public class McAssault {
+public class McAssaultAPI {
 	
 	/**
 	 * 
