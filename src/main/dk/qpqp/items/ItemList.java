@@ -1,5 +1,6 @@
 package main.dk.qpqp.items;
 
+import main.dk.qpqp.items.grenades.items.Flashbang;
 import main.dk.qpqp.items.grenades.items.HandGrenade;
 import main.dk.qpqp.items.weapons.items.AK47;
 import main.dk.qpqp.items.weapons.items.Glock;
@@ -9,7 +10,8 @@ public enum ItemList {
 	AK47 (0, "AK47", ItemType.Weapon),
 	Glock (1, "Glock", ItemType.Weapon),
 	HandGrenade(2, "HandGrenade", ItemType.Grenade),
-	Uzi (3, "Uzi", ItemType.Weapon);
+	Uzi (3, "Uzi", ItemType.Weapon),
+	FlashBang(4, "Flashbang", ItemType.Grenade);
 	
 	private int id;
 	private String name;
@@ -30,6 +32,10 @@ public enum ItemList {
 			return new HandGrenade();
 		case Uzi:
 			return new Uzi();
+		case FlashBang:
+			return new Flashbang();
+		default:
+			break;
 		}
 		return null;
 	}
