@@ -1,5 +1,6 @@
 package main.dk.qpqp;
 
+import main.dk.qpqp.listeners.GrenadeListener;
 import main.dk.qpqp.listeners.WeaponListener;
 
 import org.bukkit.Bukkit;
@@ -26,7 +27,8 @@ public class McAssault extends JavaPlugin {
 		pdf = plugin.getDescription();
 		
 		// Registers the listener that handles the Weapon's shoot mechanics and things like that
-		getServer().getPluginManager().registerEvents(new WeaponListener(plugin), this);
+		getServer().getPluginManager().registerEvents(new WeaponListener(), this);
+		getServer().getPluginManager().registerEvents(new GrenadeListener(), this);
 		
 		// Logs that the plugin has been enabled and what version it is running
 		Message.log(pdf.getName()+" v"+pdf.getVersion()+" has been enabled");
