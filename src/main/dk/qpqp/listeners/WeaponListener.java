@@ -1,12 +1,14 @@
 package main.dk.qpqp.listeners;
 
 import main.dk.qpqp.Message;
+import main.dk.qpqp.events.BulletHitEvent;
 import main.dk.qpqp.items.ItemList.ItemType;
 import main.dk.qpqp.items.Items;
 import main.dk.qpqp.items.weapons.BulletInfo;
 import main.dk.qpqp.items.weapons.Weapon;
 import main.dk.qpqp.items.weapons.Weapons;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -57,6 +59,7 @@ public class WeaponListener implements Listener {
 			for(BulletInfo bullet: Weapons.bullets.values()){
 				if(bullet.getEntity().getEntityId()==damager.getEntityId()){
 					event.setDamage(5);
+					Bukkit.getServer().getPluginManager().callEvent(new BulletHitEvent(event.getDamage(), bullet));
 				}
 			}
 			
